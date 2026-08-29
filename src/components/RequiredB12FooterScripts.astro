@@ -1,0 +1,15 @@
+---
+import Recaptcha2 from './recaptcha/RecaptchaV2.astro'
+import Recaptcha3 from './recaptcha/RecaptchaV3.astro'
+import b12Context from '../b12Context.json'
+---
+
+<script is:inline>
+  !function(b12){var e=b12.createElement("script"),t=b12.getElementsByTagName("script")[0];e.async=1,e.src="//cdn.b12.io/prod_traffic/global.js",t.parentNode.insertBefore(e,t)}(document);
+</script>
+<script>
+  import '../lib/forms'
+</script>
+
+{b12Context.recaptcha_version === 2 ? <Recaptcha2 /> : <Recaptcha3 />}
+

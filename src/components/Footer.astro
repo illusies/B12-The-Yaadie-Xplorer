@@ -1,0 +1,86 @@
+---
+import { Instagram, Facebook, Music } from 'lucide-react';
+import B12Link from './B12Link.astro';
+---
+
+<footer class="bg-black text-white">
+  <div class="section-container py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <h3 class="text-xl font-bold text-secondary mb-4">The Yaadie Xplorer</h3>
+        <p class="text-sm text-gray-300">Premium Jamaican tours, transfers, and unforgettable Caribbean adventures.</p>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+        <div class="text-sm text-gray-300 space-y-2">
+          <p>📍 Lot 1220 Porto Bello Meadows, Montego Bay, St James, Jamaica</p>
+          <p>📞 876-326-3354</p>
+          <p>✉️ theyaadiexplorer@gmail.com</p>
+          <p>🕒 9am - 6pm EST</p>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+        <div class="flex gap-4">
+          <a href="https://instagram.com/the.yaadie.xplorer" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">
+            <Instagram size={24} />
+          </a>
+          <a href="https://facebook.com/the.yaadie.xplorer" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">
+            <Facebook size={24} />
+          </a>
+          <a href="https://tiktok.com/@the.yaadie.xplorer" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors">
+            <Music size={24} />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-700 pt-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 text-xs">
+        <div>
+          <h4 class="font-semibold text-white mb-3">Explore</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="/tours" class="hover:text-secondary transition-colors">Tours</a></li>
+            <li><a href="/custom-tour" class="hover:text-secondary transition-colors">Custom Tour</a></li>
+            <li><a href="/group-packages" class="hover:text-secondary transition-colors">Groups</a></li>
+            <li><a href="/gallery" class="hover:text-secondary transition-colors">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-3">Learn</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="/about" class="hover:text-secondary transition-colors">About Us</a></li>
+            <li><a href="/blog" class="hover:text-secondary transition-colors">Blog</a></li>
+            <li><a href="/reviews" class="hover:text-secondary transition-colors">Reviews</a></li>
+            <li><a href="/testimonials" class="hover:text-secondary transition-colors">Testimonials</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-3">Support</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="/faq" class="hover:text-secondary transition-colors">FAQ</a></li>
+            <li><a href="/contact" class="hover:text-secondary transition-colors">Contact</a></li>
+            <li><a href="/terms" class="hover:text-secondary transition-colors">Terms</a></li>
+            <li><a href="/privacy" class="hover:text-secondary transition-colors">Privacy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-3">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="/index" class="hover:text-secondary transition-colors">Home</a></li>
+            <li><a href="tel:876-326-3354" class="hover:text-secondary transition-colors">Call Us</a></li>
+            <li><a href="mailto:theyaadiexplorer@gmail.com" class="hover:text-secondary transition-colors">Email</a></li>
+            <li><a href="/booking-confirmation" class="hover:text-secondary transition-colors">Confirmation</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 border-t border-gray-700 pt-6">
+        <p>&copy; 2026 The Yaadie Xplorer Tours and Transfers. All rights reserved.</p>
+        <B12Link />
+      </div>
+    </div>
+  </div>
+</footer>

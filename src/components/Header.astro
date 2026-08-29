@@ -1,0 +1,66 @@
+---
+import { Menu, ShoppingCart } from 'lucide-react';
+---
+
+<header class="sticky top-0 z-50 bg-primary text-white">
+  <nav class="section-container py-3 flex justify-between items-center">
+    <!-- Logo on the left -->
+    <a href="/" class="flex items-center flex-shrink-0">
+      <img src="https://cdn.b12.io/client_media/0Btv6XcI/33649ad2-8725-11f1-a122-0242ac110002-IMG-20260624-WA0015.jpg" alt="The Yaadie Xplorer Logo" class="h-12 w-auto" />
+    </a>
+
+    <!-- Menu items in the middle (hidden on mobile) -->
+    <div class="hidden lg:flex items-center gap-6">
+      <a href="/" class="text-sm font-medium text-white hover:text-secondary transition-colors">Home</a>
+      <a href="/tours" class="text-sm font-medium text-white hover:text-secondary transition-colors">Tours</a>
+      <a href="/about" class="text-sm font-medium text-white hover:text-secondary transition-colors">About</a>
+      <a href="/group-packages" class="text-sm font-medium text-white hover:text-secondary transition-colors">Groups</a>
+      <a href="/gallery" class="text-sm font-medium text-white hover:text-secondary transition-colors">Gallery</a>
+      <a href="/blog" class="text-sm font-medium text-white hover:text-secondary transition-colors">Blog</a>
+      <a href="/reviews" class="text-sm font-medium text-white hover:text-secondary transition-colors">Reviews</a>
+      <a href="/contact" class="text-sm font-medium text-white hover:text-secondary transition-colors">Contact</a>
+    </div>
+
+    <!-- Shopping cart, admin, and menu icons on the right -->
+    <div class="flex items-center gap-4">
+      <a href="/booking" class="text-white hover:text-secondary transition-colors" title="Book a Tour">
+        <ShoppingCart size={20} />
+      </a>
+      <a href="/admin/dashboard" class="text-white hover:text-secondary transition-colors text-sm font-medium">
+        Admin
+      </a>
+      <button id="mobile-menu-toggle" class="lg:hidden text-white hover:text-secondary transition-colors">
+        <Menu size={24} />
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-primary border-t border-white/20 text-white">
+    <div class="section-container py-4 flex flex-col gap-3">
+      <a href="/" class="text-sm font-medium text-white hover:text-secondary transition-colors">Home</a>
+      <a href="/tours" class="text-sm font-medium text-white hover:text-secondary transition-colors">Tours & Experiences</a>
+      <a href="/about" class="text-sm font-medium text-white hover:text-secondary transition-colors">About Us</a>
+      <a href="/group-packages" class="text-sm font-medium text-white hover:text-secondary transition-colors">Group Packages</a>
+      <a href="/gallery" class="text-sm font-medium text-white hover:text-secondary transition-colors">Gallery</a>
+      <a href="/blog" class="text-sm font-medium text-white hover:text-secondary transition-colors">Blog</a>
+      <a href="/reviews" class="text-sm font-medium text-white hover:text-secondary transition-colors">Reviews</a>
+      <a href="/contact" class="text-sm font-medium text-white hover:text-secondary transition-colors">Contact</a>
+      <div class="border-t border-white/20 pt-3 mt-3 flex flex-col gap-3">
+        <a href="/booking" class="text-sm font-medium text-white hover:text-secondary transition-colors">Book a Tour</a>
+        <a href="/admin/dashboard" class="text-sm font-medium text-white hover:text-secondary transition-colors">Admin</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>

@@ -1,0 +1,131 @@
+---
+import b12Context from '../b12Context.json'
+
+const canonicalUrl = `${b12Context.website_url.replace(/\/$/, '')}${Astro.url.pathname}`
+---
+
+<link rel="canonical" href={canonicalUrl} />
+<script is:inline define:vars={{ clientUid: b12Context.client_uid, productUrl: b12Context.product_url }}>
+  window.__CLIENT_UID__ = clientUid
+  window.__PRODUCT_URL__ = productUrl
+</script>
+
+<script
+  is:inline
+  define:vars={{
+    previewFrameScriptUrl: b12Context.preview_frame_script,
+    isPreview: b12Context.is_preview,
+    debug: b12Context.debug,
+  }}
+>
+  ;(function () {
+    // Only run inside the B12 editor preview iframe. Production builds set
+    // is_preview=false and skip entirely, so customer sites embedded in any
+    // third-party iframe will not be patched.
+    if (!isPreview || window.self === window.top) {
+      if (debug) {
+        console.log('Site Builder: not in editor preview. Exit.')
+      }
+      return
+    }
+
+    if (!window.__B12_PREVIEW_ERROR_BUFFER__) {
+      window.__B12_PREVIEW_ERROR_BUFFER__ = []
+
+      var stringifyArg = function (a) {
+        if (a instanceof Error) return a.stack || a.name + ': ' + a.message
+        if (typeof a === 'string') return a
+        try {
+          return JSON.stringify(a)
+        } catch (e) {
+          return String(a)
+        }
+      }
+
+      var inConsoleHandler = false
+      var origConsoleError = console.error
+      console.error = function () {
+        try {
+          origConsoleError.apply(console, arguments)
+        } catch (e) {}
+        if (inConsoleHandler) return
+        inConsoleHandler = true
+        try {
+          var args = Array.prototype.slice.call(arguments)
+          var errArg = null
+          for (var i = 0; i < args.length; i++) {
+            if (args[i] instanceof Error) {
+              errArg = args[i]
+              break
+            }
+          }
+          window.__B12_PREVIEW_ERROR_BUFFER__.push({
+            source: 'console',
+            message: args.map(stringifyArg).join(' '),
+            stack: errArg?.stack,
+          })
+        } catch (e) {
+        } finally {
+          inConsoleHandler = false
+        }
+      }
+
+      window.addEventListener(
+        'error',
+        function (event) {
+          var target = event.target
+          if (target && target !== window && (target.src || target.href)) {
+            var resUrl = target.src || target.href
+            window.__B12_PREVIEW_ERROR_BUFFER__.push({
+              source: 'network',
+              message: 'Failed to load resource: ' + resUrl,
+              url: resUrl,
+            })
+            return
+          }
+          window.__B12_PREVIEW_ERROR_BUFFER__.push({
+            source: 'window',
+            message: event.message || (event.error ? event.error.message : 'Unknown error'),
+            stack: event.error?.stack,
+            url: event.filename,
+          })
+        },
+        true,
+      )
+
+      window.addEventListener('unhandledrejection', function (event) {
+        var reason = event.reason
+        var msg =
+          reason instanceof Error ? reason.message : typeof reason === 'string' ? reason : stringifyArg(reason)
+        window.__B12_PREVIEW_ERROR_BUFFER__.push({
+          source: 'rejection',
+          message: 'Unhandled promise rejection: ' + msg,
+          stack: reason?.stack,
+        })
+      })
+    }
+
+    if (window.__B12_PREVIEW_FRAME_LOADED__) {
+      if (debug) {
+        console.log('Site Builder: preview script already loaded. Skip.')
+      }
+      return
+    }
+    window.__B12_PREVIEW_FRAME_LOADED__ = true
+
+    const script = document.createElement('script')
+    script.src = previewFrameScriptUrl
+    script.async = true
+    script.defer = true
+
+    script.onerror = function () {
+      console.error('Site Builder: Failed to load editor bridge.')
+    }
+
+    if (debug) {
+      console.log('Site Builder: append the preview script:', script.src)
+    }
+    document.head.appendChild(script)
+  })()
+</script>
+{b12Context.favicon && <link rel="shortcut icon" href={b12Context.favicon} />}
