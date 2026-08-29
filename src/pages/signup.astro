@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SignInForm from '../components/SignInForm';
+import SignUpForm from '../components/SignUpForm';
+---
+
+<Layout title="Sign Up / Sign In - The Yaadie Xplorer">
+  <section id="signup-header" class="bg-gradient-to-r from-primary to-green-800 text-white py-12">
+    <div class="section-container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Create Your Account</h1>
+      <p class="text-lg text-gray-100">Sign in or create an account to book your Jamaican adventure</p>
+    </div>
+  </section>
+
+  <div class="section-container py-12">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Sign In Form -->
+        <div class="bg-card rounded-lg border border-border p-8 shadow-sm">
+          <h2 class="text-2xl font-bold text-foreground mb-6">Sign In</h2>
+          <SignInForm client:load />
+          <p class="text-center text-sm text-muted-foreground mt-6">
+            Don't have an account? <a href="/signup" class="text-primary font-semibold hover:text-green-700">Create one</a>
+          </p>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="bg-card rounded-lg border border-border p-8 shadow-sm">
+          <h2 class="text-2xl font-bold text-foreground mb-6">Create Account</h2>
+          <SignUpForm client:load />
+          <p class="text-center text-sm text-muted-foreground mt-6">
+            Already have an account? <a href="/signup" class="text-primary font-semibold hover:text-green-700">Sign in</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Info Section -->
+      <div class="mt-12 bg-gradient-to-r from-green-50 to-amber-50 rounded-lg p-8 border-l-4 border-primary">
+        <h3 class="text-xl font-bold text-foreground mb-4">Why Create an Account?</h3>
+        <ul class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <li class="flex items-start gap-3">
+            <div class="text-secondary text-2xl font-bold flex-shrink-0">✓</div>
+            <div>
+              <p class="font-semibold text-foreground">Easy Booking</p>
+              <p class="text-sm text-muted-foreground">Book tours quickly with saved information</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="text-secondary text-2xl font-bold flex-shrink-0">✓</div>
+            <div>
+              <p class="font-semibold text-foreground">Track Reservations</p>
+              <p class="text-sm text-muted-foreground">View and manage all your upcoming tours</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="text-secondary text-2xl font-bold flex-shrink-0">✓</div>
+            <div>
+              <p class="font-semibold text-foreground">Exclusive Updates</p>
+              <p class="text-sm text-muted-foreground">Get special offers and new tour announcements</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="mt-12 text-center p-8 bg-background rounded-lg border border-border">
+        <p class="text-foreground mb-4">Need help? Contact us directly:</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <a href="tel:876-326-3354" class="text-primary font-semibold hover:text-green-700 text-lg">
+            📞 876-326-3354
+          </a>
+          <a href="https://wa.me/1876326335" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold hover:text-green-700 text-lg">
+            💬 WhatsApp
+          </a>
+          <a href="mailto:theyaadiexplorer@gmail.com" class="text-primary font-semibold hover:text-green-700 text-lg">
+            📧 Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+
+<style>
+  @reference "../styles/global.css";
+</style>

@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Heart, Target, Users } from 'lucide-react';
+
+const teamImage = 'https://cdn.b12.io/client_media/0Btv6XcI/5dac145a-80c4-11f1-bd77-0242ac110002-IF2dyl6DLbN5QfIcrimhy.jpg';
+---
+
+<Layout title="About Us - The Yaadie Xplorer">
+  <section id="about-header" class="bg-gradient-to-r from-primary to-green-800 text-white py-12">
+    <div class="section-container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">About The Yaadie Xplorer</h1>
+      <p class="text-lg text-gray-100">Bringing Jamaica's wonders to the world, one adventure at a time</p>
+    </div>
+  </section>
+
+  <div class="section-container py-12">
+    <!-- Our Story -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-primary mb-6">Our Story</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <p class="text-foreground mb-4 leading-relaxed">
+            The Yaadie Xplorer was born from a passion for sharing Jamaica's natural beauty and vibrant culture with travelers from around the world. What started as a small local operation has grown into a trusted name in Caribbean tourism, known for creating unforgettable experiences.
+          </p>
+          <p class="text-foreground mb-4 leading-relaxed">
+            Our name, "Yaadie," reflects the warmth and hospitality of Jamaican culture—a spirit we bring to every tour. We believe that travel isn't just about seeing destinations; it's about connecting with people, places, and experiences that transform you.
+          </p>
+          <p class="text-foreground leading-relaxed">
+            From the cascading waters of Dunn's River to the bioluminescent magic of Luminous Lagoon, we've curated experiences that showcase the best of Jamaica while maintaining the highest standards of safety, quality, and sustainability.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-8">
+          <h3 class="text-xl font-bold text-primary mb-4">Why Choose Us?</h3>
+          <ul class="space-y-3">
+            <li class="flex gap-3">
+              <span class="text-secondary text-lg">✓</span>
+              <span class="text-foreground">15+ years of experience in Jamaican tourism</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-secondary text-lg">✓</span>
+              <span class="text-foreground">2,000+ satisfied travelers annually</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-secondary text-lg">✓</span>
+              <span class="text-foreground">4.8★ average guest rating</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-secondary text-lg">✓</span>
+              <span class="text-foreground">Professional, certified guides</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-secondary text-lg">✓</span>
+              <span class="text-foreground">Flexible & customizable tours</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-secondary text-lg">✓</span>
+              <span class="text-foreground">Commitment to sustainability</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission, Vision, Values -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      <div class="bg-white rounded-xl shadow-lg p-8 border-t-4 border-primary">
+        <div class="flex items-center gap-3 mb-4">
+          <Target class="text-primary" size={28} />
+          <h3 class="text-xl font-bold text-primary">Our Mission</h3>
+        </div>
+        <p class="text-foreground">To create authentic, unforgettable Caribbean experiences that connect travelers with Jamaica's natural wonders, vibrant culture, and warm-hearted people while maintaining the highest standards of safety and sustainability.</p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg p-8 border-t-4 border-secondary">
+        <div class="flex items-center gap-3 mb-4">
+          <Heart class="text-secondary" size={28} />
+          <h3 class="text-xl font-bold text-primary">Our Values</h3>
+        </div>
+        <p class="text-foreground">Hospitality, integrity, adventure, sustainability, and excellence. We treat every guest like family and take pride in delivering experiences that exceed expectations while respecting Jamaica's environment and communities.</p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg p-8 border-t-4 border-primary">
+        <div class="flex items-center gap-3 mb-4">
+          <Users class="text-primary" size={28} />
+          <h3 class="text-xl font-bold text-primary">Our Community</h3>
+        </div>
+        <p class="text-foreground">We're deeply rooted in Montego Bay and Jamaica. Our team of local guides and partners are passionate ambassadors who know every waterfall, trail, and hidden gem—and love sharing them with visitors.</p>
+      </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-primary mb-6">Meet Our Team</h2>
+      <p class="text-muted-foreground mb-8">Passionate Jamaicans dedicated to delivering world-class experiences</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { name: 'Marcus Johnson', role: 'Founder & Operations Manager', specialty: 'Custom itineraries & group bookings' },
+          { name: 'Amelia Brown', role: 'Senior Guide', specialty: 'Adventure tours & mountain expeditions' },
+          { name: 'David Thompson', role: 'Water Sports Director', specialty: 'Catamaran & aquatic experiences' },
+          { name: 'Sophia Grant', role: 'Cultural Experience Specialist', specialty: 'Heritage tours & local connections' },
+        ].map((member) => (
+          <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow text-center">
+            <img
+              src={teamImage}
+              alt={member.name}
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="font-bold text-foreground mb-1">{member.name}</h3>
+              <p class="text-sm text-primary font-semibold mb-2">{member.role}</p>
+              <p class="text-xs text-muted-foreground">{member.specialty}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Sustainability -->
+    <div class="bg-green-50 rounded-xl p-8 border-l-4 border-primary">
+      <h2 class="text-2xl font-bold text-primary mb-4">Our Commitment to Sustainability</h2>
+      <p class="text-foreground mb-4">
+        We believe in protecting Jamaica's natural treasures for future generations. Our sustainability practices include:
+      </p>
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <li class="flex gap-3">
+          <span class="text-primary font-bold">•</span>
+          <span class="text-foreground">Eco-friendly transportation and minimal plastic use on tours</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-primary font-bold">•</span>
+          <span class="text-foreground">Supporting local communities and fair wages for all team members</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-primary font-bold">•</span>
+          <span class="text-foreground">Wildlife and habitat protection on all nature tours</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-primary font-bold">•</span>
+          <span class="text-foreground">Education about Jamaica's ecosystems and conservation needs</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="bg-primary text-white py-12 mt-12">
+    <div class="section-container text-center">
+      <h2 class="text-3xl font-bold mb-4">Ready to Experience Jamaica Like a Local?</h2>
+      <p class="text-lg text-gray-100 mb-8">Start your adventure today</p>
+      <a href="/tours" class="btn-secondary text-lg">Browse Tours</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @reference "../styles/global.css";
+</style>

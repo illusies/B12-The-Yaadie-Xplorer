@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Users, Zap, Award, Clock } from 'lucide-react';
+---
+
+<Layout title="Group Packages & Corporate Events - The Yaadie Xplorer">
+  <section id="group-header" class="bg-gradient-to-r from-primary to-green-800 text-white py-12">
+    <div class="section-container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Group Packages & Corporate Events</h1>
+      <p class="text-lg text-gray-100">Unforgettable team experiences and group adventures in Jamaica</p>
+    </div>
+  </section>
+
+  <div class="section-container py-12">
+    <!-- Group Benefits -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-primary mb-8">Why Choose Group Tours with The Yaadie Xplorer?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-secondary">
+          <Users class="text-secondary mb-3" size={32} />
+          <h3 class="font-bold text-foreground mb-2">Expert Coordination</h3>
+          <p class="text-sm text-muted-foreground">Dedicated team handles logistics, timing, and special requests for seamless experiences.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-primary">
+          <Zap class="text-primary mb-3" size={32} />
+          <h3 class="font-bold text-foreground mb-2">Competitive Pricing</h3>
+          <p class="text-sm text-muted-foreground">Special group discounts and flexible payment options for organizations of all sizes.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-secondary">
+          <Award class="text-secondary mb-3" size={32} />
+          <h3 class="font-bold text-foreground mb-2">Customization</h3>
+          <p class="text-sm text-muted-foreground">Tailor itineraries to your group's interests, pace, and any special requirements.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-primary">
+          <Clock class="text-primary mb-3" size={32} />
+          <h3 class="font-bold text-foreground mb-2">Flexibility</h3>
+          <p class="text-sm text-muted-foreground">Flexible dates, scalable groups, and accommodations for all fitness levels.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Package Types -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-primary mb-8">Our Group Packages</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Adventure Package -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border-l-4 border-secondary">
+          <div class="bg-primary text-white p-6">
+            <h3 class="text-2xl font-bold mb-2">Adventure & Thrill</h3>
+            <p class="text-gray-100">Perfect for: Team building, youth groups, adventure seekers</p>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3 mb-6">
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">ATV safari & zipline adventure</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Mountain hiking expeditions</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Catamaran with water sports</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Jet car & adrenaline activities</span>
+              </li>
+            </ul>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="text-sm text-muted-foreground mb-2">Starting from</p>
+              <p class="text-2xl font-bold text-primary">$85 <span class="text-lg font-normal">per person</span></p>
+              <p class="text-xs text-muted-foreground mt-2">Groups 8+</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Relaxation Package -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border-l-4 border-secondary">
+          <div class="bg-primary text-white p-6">
+            <h3 class="text-2xl font-bold mb-2">Relaxation & Culture</h3>
+            <p class="text-gray-100">Perfect for: Luxury retreats, wellness groups, cultural enthusiasts</p>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3 mb-6">
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Bamboo rafting with massage</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Cultural heritage tours</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Sunset beach experiences</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Local cuisine & shopping</span>
+              </li>
+            </ul>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="text-sm text-muted-foreground mb-2">Starting from</p>
+              <p class="text-2xl font-bold text-primary">$65 <span class="text-lg font-normal">per person</span></p>
+              <p class="text-xs text-muted-foreground mt-2">Groups 8+</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Private Charter Package -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border-l-4 border-secondary">
+          <div class="bg-primary text-white p-6">
+            <h3 class="text-2xl font-bold mb-2">Private Yacht Charter</h3>
+            <p class="text-gray-100">Perfect for: Executive events, celebrations, intimate groups</p>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3 mb-6">
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Luxury yacht rental (3 hours)</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Complimentary finger food & open bar</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Professional crew & captain</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Up to 18 guests</span>
+              </li>
+            </ul>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="text-sm text-muted-foreground mb-2">Flat rate</p>
+              <p class="text-2xl font-bold text-primary">$450 <span class="text-lg font-normal">for 3 hours</span></p>
+              <p class="text-xs text-muted-foreground mt-2">Max 18 people</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Package -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border-l-4 border-secondary">
+          <div class="bg-primary text-white p-6">
+            <h3 class="text-2xl font-bold mb-2">Custom Multi-Day Retreat</h3>
+            <p class="text-gray-100">Perfect for: Executive retreats, incentive trips, customized experiences</p>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3 mb-6">
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Multi-day itinerary design</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Accommodation partnerships</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Meals & dining coordination</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="text-secondary">✓</span>
+                <span class="text-foreground">Team-building activities</span>
+              </li>
+            </ul>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="text-sm text-muted-foreground mb-2">Custom quote</p>
+              <p class="text-2xl font-bold text-primary">Call for pricing</p>
+              <p class="text-xs text-muted-foreground mt-2">Any group size</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group Features -->
+    <div class="bg-gradient-to-r from-green-50 to-amber-50 rounded-xl p-8 mb-16">
+      <h2 class="text-2xl font-bold text-primary mb-6">Group Tour Inclusions</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h4 class="font-bold text-foreground mb-3">Standard Inclusions</h4>
+          <ul class="space-y-2 text-sm text-foreground">
+            <li>✓ Professional guide per 12-15 people</li>
+            <li>✓ All transportation</li>
+            <li>✓ Entry fees</li>
+            <li>✓ Complimentary drinks & snacks</li>
+            <li>✓ First aid kit & safety equipment</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-foreground mb-3">Optional Add-ons</h4>
+          <ul class="space-y-2 text-sm text-foreground">
+            <li>✓ Photography/videography service</li>
+            <li>✓ Souvenir t-shirts</li>
+            <li>✓ Group meals & dinner</li>
+            <li>✓ Travel insurance coordination</li>
+            <li>✓ Pre-tour briefing & planning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-primary text-white rounded-xl p-8 text-center">
+      <h3 class="text-2xl font-bold mb-4">Ready to Plan Your Group Adventure?</h3>
+      <p class="text-gray-100 mb-6">Contact our group coordinator for a custom quote and detailed planning.</p>
+      <div class="flex flex-col md:flex-row justify-center gap-4">
+        <a href="/custom-tour" class="btn-secondary">Request Group Quote</a>
+        <a href="tel:876-326-3354" class="btn-outline text-white border-white hover:bg-white hover:text-primary">Call 876-326-3354</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @reference "../styles/global.css";
+</style>

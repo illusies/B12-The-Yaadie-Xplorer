@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import AdminLogin from '../../components/AdminLogin'
+---
+
+<Layout title="Admin Login - The Yaadie Xplorer">
+  <section id="admin-login-header" class="bg-gradient-to-r from-primary to-green-800 text-white py-12">
+    <div class="section-container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Admin Portal</h1>
+      <p class="text-lg text-gray-100">Manage your booking platform</p>
+    </div>
+  </section>
+
+  <div class="section-container py-12">
+    <AdminLogin client:load />
+  </div>
+</Layout>
+
+<style>
+  @reference "../../styles/global.css";
+</style>

@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TourBrowser from '../components/TourBrowser';
+
+const heroImage = 'https://cdn.b12.io/client_media/0Btv6XcI/7ba17649-8721-11f1-8135-0242ac110002-4AM_So-0Qq4pj4ADYfBcZ.jpg';
+
+const catamaranImage = 'https://cdn.b12.io/client_media/0Btv6XcI/5d8573b7-80c4-11f1-be41-0242ac110002-3HSgnUeJT-DNijn-IT7YD.jpg';
+const dunnsRiverImage = 'https://cdn.b12.io/client_media/0Btv6XcI/5dd5cd17-80c4-11f1-87cc-0242ac110002-kyGSXl1N2HsrFHafC2D65.jpg';
+const blueHoleImage = 'https://cdn.b12.io/client_media/0Btv6XcI/5ddec6ec-80c4-11f1-a769-0242ac110002-aSHMvY_8kdFUWfJz9910Y.jpg';
+const yachtImage = 'https://cdn.b12.io/client_media/0Btv6XcI/5df2a153-80c4-11f1-8b79-0242ac110002-IQwwItwlBVOThkW7oAfi3.jpg';
+
+const tours = [
+  {
+    id: 1,
+    name: 'Catamaran Cruise',
+    image: catamaranImage,
+    location: 'Montego Bay',
+    price: 65,
+    rating: 4.8,
+    reviews: 156,
+    category: 'Water Sports',
+    amenities: ['drink', 'food', 'transfer']
+  },
+  {
+    id: 2,
+    name: 'Dunn\'s River & Blue Hole',
+    image: dunnsRiverImage,
+    location: 'Ocho Rios',
+    price: 75,
+    rating: 4.9,
+    reviews: 203,
+    category: 'Adventure',
+    amenities: ['drink', 'food', 'transfer']
+  },
+  {
+    id: 3,
+    name: 'Blue Mountain Tour',
+    image: blueHoleImage,
+    location: 'Kingston',
+    price: 85,
+    rating: 4.7,
+    reviews: 89,
+    category: 'Cultural',
+    amenities: ['drink', 'food']
+  },
+  {
+    id: 4,
+    name: 'Private Yacht Charter',
+    image: yachtImage,
+    location: 'Montego Bay',
+    price: 450,
+    rating: 5.0,
+    reviews: 42,
+    category: 'Water Sports',
+    amenities: ['drink', 'food']
+  },
+  {
+    id: 5,
+    name: 'Beach Day Adventure',
+    image: catamaranImage,
+    location: 'Negril',
+    price: 55,
+    rating: 4.6,
+    reviews: 127,
+    category: 'Beach',
+    amenities: ['drink', 'food', 'transfer']
+  },
+  {
+    id: 6,
+    name: 'Eco Adventure Park',
+    image: blueHoleImage,
+    location: 'Falmouth',
+    price: 95,
+    rating: 4.8,
+    reviews: 184,
+    category: 'Adventure',
+    amenities: ['food', 'transfer']
+  },
+];
+---
+
+<Layout title="The Yaadie Xplorer - Premium Jamaican Tours & Transfers">
+  <!-- Hero Section -->
+  <section id="hero" class="relative h-96 md:h-[450px] overflow-hidden">
+    <img
+      src={heroImage}
+      alt="Beautiful catamaran on turquoise Caribbean waters"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative h-full flex flex-col justify-center items-center text-center">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4 gradient-text">
+        The Yaadie Xplorer
+      </h1>
+      <div class="max-w-2xl px-4 mb-3">
+        <p class="text-sm md:text-base text-white leading-relaxed">
+          The Yaadie Xplorer connects travelers with the authentic side of Jamaica.<br />
+          We curate local tours, food experiences, events, and cultural stories that go beyond the resorts.<br />
+          Our mission: showcase Jamaica's people, places, and pride — the way yaadies see it.<br />
+          Discover Jamaica. The Yaadie Way.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tour Browser Component -->
+  <TourBrowser client:load tours={tours} />
+</Layout>
+
+<style>
+  @reference "../styles/global.css";
+
+  .gradient-text {
+    background: linear-gradient(90deg, #007A33 0%, #FFC72C 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>

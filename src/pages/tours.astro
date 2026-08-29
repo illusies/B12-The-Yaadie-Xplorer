@@ -1,0 +1,182 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Star, MapPin, Users, TrendingUp } from 'lucide-react';
+
+const underseaImage = 'https://cdn.b12.io/client_media/0Btv6XcI/5d6a9445-80c4-11f1-80de-0242ac110002-l7hjThh-nBoLqNShOZQ63.jpg';
+
+const tours = [
+  { id: 1, name: 'Catamaran Cruise', category: 'Water', price: 110, priceDetails: '$110/person (shared transfer), $130/person (private, 4+ guests)', rating: 4.8, perks: true, description: 'Sail on crystal clear waters' },
+  { id: 2, name: 'Dunn\'s River & Blue Hole', category: 'Adventure', price: 120, priceDetails: '$120/person (private, 4+ guests)', rating: 4.9, perks: true, description: 'Twin waterfall experience with natural swimming pools' },
+  { id: 3, name: 'Dunn\'s River Falls Only', category: 'Nature', price: 87.50, priceDetails: '$87.50/person', rating: 4.7, perks: false, description: 'Iconic cascading waterfalls with limestone terraces' },
+  { id: 4, name: 'Blue Hole Only', category: 'Adventure', price: 90, priceDetails: '$90/person (private, 4+ guests)', rating: 4.6, perks: false, description: 'Cenote swimming in lush jungle surroundings' },
+  { id: 5, name: 'ATV, Zipline, Horseback, Catamaran & Jeep Safari', category: 'Extreme', price: 165, priceDetails: '$165/person (public), $195/person (private)', rating: 4.9, perks: true, description: 'High-octane adventure through mountains and forests' },
+  { id: 6, name: 'ATV, Zipline, Horseback & Rick\'s Cafe Negril', category: 'Extreme', price: 189, priceDetails: '$189/person, $210/person (private transfer)', rating: 4.8, perks: true, description: 'Adventure and dining experience in Negril' },
+  { id: 7, name: 'ATV & Zipline', category: 'Extreme', price: 169, priceDetails: '$169/person', rating: 4.8, perks: false, description: 'Combine two thrilling activities' },
+  { id: 8, name: 'ATV & Horseback', category: 'Extreme', price: 169, priceDetails: '$169/person', rating: 4.7, perks: false, description: 'Off-road adventure combined with horseback riding' },
+  { id: 9, name: 'Eco Adventure Park', category: 'Adventure', price: 209, priceDetails: '$209/person (private transfer extra)', rating: 4.8, perks: false, description: 'Dune buggy, zipline, river rafting, tubing, e-bike' },
+  { id: 10, name: 'Luminous Lagoon', category: 'Nature', price: 55, priceDetails: '$55/person', rating: 4.8, perks: false, description: 'Swim in glowing bioluminescent waters at night' },
+  { id: 11, name: 'Bamboo Rafting in Great River', category: 'Relaxation', price: 70, priceDetails: '$70/person', rating: 4.7, perks: false, description: 'Scenic bamboo raft with limestone massage' },
+  { id: 12, name: 'Martha Brae Rafting', category: 'Relaxation', price: 90, priceDetails: '$90/person', rating: 4.6, perks: false, description: 'Scenic bamboo raft journey down historic river' },
+  { id: 13, name: 'River Tubing', category: 'Adventure', price: 55, priceDetails: '$55/person (no transfer), $93/person (with transfer)', rating: 4.7, perks: false, description: 'Thrilling tubing adventure down tropical river' },
+  { id: 14, name: 'Negril Day Tour, Shopping & Rick\'s Cafe', category: 'Combined', price: 60, priceDetails: '$60/person', rating: 4.7, perks: false, description: 'Beach, shopping, and dining experience' },
+  { id: 15, name: 'ATV Only', category: 'Extreme', price: 140, priceDetails: '$140/person', rating: 4.8, perks: false, description: 'Solo all-terrain vehicle adventure' },
+  { id: 16, name: 'Clear Kayak', category: 'Water', price: 180, priceDetails: '$180/person (includes transfer)', rating: 4.5, perks: false, description: 'Glass kayak for viewing coral reefs and marine life' },
+  { id: 17, name: 'Jet Car', category: 'Extreme', price: 250, priceDetails: '$250/car', rating: 4.9, perks: false, description: 'High-speed jet car adventure' },
+  { id: 18, name: 'Jet Ski', category: 'Water', price: 100, priceDetails: '$100/person (transfer +$15, 4+ guests)', rating: 4.8, perks: false, description: 'Fast-paced water adventure' },
+  { id: 19, name: 'Nightlife', category: 'Entertainment', price: 25, priceDetails: '$25/person (4+ guests)', rating: 4.6, perks: false, description: 'Experience Jamaica\'s vibrant nightlife' },
+  { id: 20, name: 'Private Yacht Charter', category: 'Premium', price: 2160, priceDetails: '$2,160 (3hrs, 18 guests, food & open bar, transfer included)', rating: 5.0, perks: true, description: 'Luxury yacht experience' },
+  { id: 21, name: 'Shopping', category: 'Leisure', price: 20, priceDetails: '$20/person', rating: 4.5, perks: false, description: 'Guided shopping experience' },
+  { id: 22, name: 'Sightseeing & Shopping', category: 'Combined', price: 50, priceDetails: '$50/person', rating: 4.6, perks: false, description: 'Explore and shop Jamaica\'s best spots' },
+  { id: 23, name: 'Bob Marley House Tour', category: 'Cultural', price: 120, priceDetails: '$120/person', rating: 4.7, perks: false, description: 'Historic home of the legendary reggae icon' },
+  { id: 24, name: 'Bob Marley & Dunn\'s River', category: 'Combined', price: 150, priceDetails: '$150/person', rating: 4.8, perks: false, description: 'Culture and nature in one unforgettable day' },
+  { id: 25, name: 'Weed Farm & Shopping', category: 'Cultural', price: 60, priceDetails: '$60/person (transfer included)', rating: 4.5, perks: false, description: 'Unique cultural and agricultural experience' },
+  { id: 26, name: 'Hiking Experience', category: 'Nature', price: 70, priceDetails: '$70/person (4+ guests)', rating: 4.7, perks: false, description: 'Trek Jamaica\'s lush mountain trails' },
+  { id: 27, name: 'Kingston Highlights Tour', category: 'Cultural', price: 550, priceDetails: '$550 (1–4 guests)', rating: 4.7, perks: false, description: 'Bob Marley Museum, Emancipation Park, Devon House' },
+  { id: 28, name: 'Appleton Estate & YS Falls', category: 'Combined', price: 160, priceDetails: '$160/person (4+ guests)', rating: 4.8, perks: true, description: 'Rum tour and waterfall adventure' },
+  { id: 29, name: 'Appleton Estate Only', category: 'Cultural', price: 120, priceDetails: '$120/person', rating: 4.7, perks: false, description: 'Historic rum distillery tour' },
+  { id: 30, name: 'YS Falls Only', category: 'Nature', price: 120, priceDetails: '$120/person', rating: 4.7, perks: false, description: 'Majestic waterfall experience' },
+  { id: 31, name: 'Rose Hall Great House Day Tour', category: 'Cultural', price: 45, priceDetails: '$45/person', rating: 4.6, perks: false, description: 'Historic plantation mansion with legendary tales' },
+  { id: 32, name: 'Rose Hall Great House Night Tour', category: 'Cultural', price: 50, priceDetails: '$50/person', rating: 4.6, perks: false, description: 'Evening tour of historic mansion' },
+  { id: 33, name: 'Rose Hall Great House & Shopping', category: 'Combined', price: 55, priceDetails: '$55/person', rating: 4.6, perks: false, description: 'History and shopping experience' },
+  { id: 34, name: 'Dolphin Encounter Lucea', category: 'Marine', price: 150, priceDetails: '$150/person (transfer +$30)', rating: 4.9, perks: true, description: 'Meet and interact with dolphins' },
+  { id: 35, name: 'Dolphin Swim', category: 'Marine', price: 180, priceDetails: '$180/person (transfer +$30)', rating: 4.9, perks: true, description: 'Swim and play with friendly dolphins' },
+  { id: 36, name: 'Dolphin Ultimate Swim', category: 'Marine', price: 220, priceDetails: '$220/person (transfer +$30)', rating: 5.0, perks: true, description: 'Premium dolphin swimming experience' },
+  { id: 37, name: 'Doctor\'s Cave Beach', category: 'Beach', price: 20, priceDetails: '$20/person (4+ guests)', rating: 4.5, perks: false, description: 'Beautiful beach day experience' },
+  { id: 38, name: 'Rockland Bird Sanctuary', category: 'Nature', price: 73, priceDetails: '$73/person (4+ guests)', rating: 4.7, perks: false, description: 'Bird watching in natural habitat' },
+  { id: 39, name: 'Blue Mountain Tour', category: 'Nature', price: 700, priceDetails: '$700 (1–4 guests)', rating: 4.7, perks: false, description: 'Hike Jamaica\'s most famous mountain peak' },
+  { id: 40, name: 'Airport Transfer - Montego Bay Hotel', category: 'Transfers', price: 40, priceDetails: '$40 (1–4 guests)', rating: 4.8, perks: false, description: 'Convenient airport transportation' },
+  { id: 41, name: 'Airport Transfer - Negril', category: 'Transfers', price: 120, priceDetails: '$120 (1–4 guests)', rating: 4.8, perks: false, description: 'Direct airport to Negril transfer' },
+  { id: 42, name: 'Airport Transfer - Ocho Rios', category: 'Transfers', price: 120, priceDetails: '$120 (1–4 guests)', rating: 4.8, perks: false, description: 'Direct airport to Ocho Rios transfer' },
+  { id: 43, name: 'Airport Transfer - South Coast', category: 'Transfers', price: 50, priceDetails: '$50/person', rating: 4.8, perks: false, description: 'Direct airport to South Coast transfer' },
+];
+
+const categories = ['All', ...Array.from(new Set(tours.map(t => t.category)))];
+---
+
+<Layout title="Tours & Experiences - The Yaadie Xplorer">
+  <section id="tours-header" class="bg-gradient-to-r from-primary to-green-800 text-white py-12">
+    <div class="section-container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Tours & Experiences</h1>
+      <p class="text-lg text-gray-100">Discover 43+ curated tours showcasing Jamaica's best</p>
+    </div>
+  </section>
+
+  <div class="section-container py-12">
+    <!-- Filter Buttons -->
+    <div class="mb-12">
+      <h3 class="text-lg font-semibold text-foreground mb-4">Filter by Category</h3>
+      <div class="flex flex-wrap gap-3">
+        {categories.map((cat) => (
+          <button
+            class={`px-4 py-2 rounded-full font-semibold transition-all ${
+              cat === 'All'
+                ? 'bg-primary text-white'
+                : 'bg-gray-200 text-foreground hover:bg-secondary hover:text-black'
+            }`}
+            data-category={cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tours Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      {tours.map((tour) => (
+        <div class="tour-card group" data-category={tour.category} data-tour-id={tour.id}>
+          <div class="relative overflow-hidden h-48 bg-gray-200">
+            <img
+              src={underseaImage}
+              alt={tour.name}
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+            <div class="absolute top-3 left-3 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-semibold">
+              {tour.category}
+            </div>
+            {tour.perks && (
+              <div class="absolute top-3 right-3">
+                <span class="perks-badge">With Perks!</span>
+              </div>
+            )}
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg text-foreground mb-2">{tour.name}</h3>
+            <p class="text-sm text-muted-foreground mb-4">{tour.description}</p>
+            <div class="flex items-center gap-1 mb-3">
+              <div class="flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    size={14}
+                    class={i < Math.floor(tour.rating) ? 'fill-secondary text-secondary' : 'text-gray-300'}
+                  />
+                ))}
+              </div>
+              <span class="text-xs text-muted-foreground">{tour.rating}</span>
+            </div>
+            <div class="pt-4 border-t border-border space-y-3">
+              <div class="text-primary font-bold text-sm">
+                {tour.priceDetails ? tour.priceDetails : `$${tour.price}${tour.priceType ? ' ' + tour.priceType : ''}`}
+              </div>
+              <a href="/signup" class="w-full inline-block text-center bg-secondary text-black py-2 px-4 rounded-md font-semibold hover:bg-amber-300 transition-colors">
+                Book Now
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Custom Tours & Perks Note -->
+    <div class="bg-gradient-to-r from-green-50 to-amber-50 rounded-lg p-6 mb-8 border-l-4 border-primary">
+      <p class="text-foreground text-center">
+        <strong>Custom tours available upon request.</strong> Complimentary rum punch, Red Stripe, water, and coconut water included on selected tours.
+      </p>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <section class="bg-secondary text-black py-12">
+    <div class="section-container text-center">
+      <h2 class="text-3xl font-bold mb-4">Can't Find Your Dream Tour?</h2>
+      <p class="text-lg mb-6 max-w-2xl mx-auto">Create a custom itinerary tailored to your interests and group size</p>
+      <a href="/custom-tour" class="btn-primary">Create Custom Tour</a>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('button[data-category]');
+    const tourCards = document.querySelectorAll('.tour-card[data-tour-id]');
+
+    filterButtons?.forEach(button => {
+      button.addEventListener('click', () => {
+        const selectedCategory = button.getAttribute('data-category');
+
+        // Update active button
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-primary', 'text-white');
+          btn.classList.add('bg-gray-200', 'text-foreground');
+        });
+        button.classList.add('bg-primary', 'text-white');
+        button.classList.remove('bg-gray-200', 'text-foreground');
+
+        // Filter tours
+        tourCards?.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (selectedCategory === 'All' || category === selectedCategory) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  @reference "../styles/global.css";
+</style>

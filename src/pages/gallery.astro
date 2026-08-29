@@ -1,0 +1,178 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const heroImage = 'https://cdn.b12.io/client_media/0Btv6XcI/5db35478-80c4-11f1-9ecc-0242ac110002-e1kIXPVZhpCEgAyxS24dW.jpg';
+const dunnsRiverImage = 'https://cdn.b12.io/client_media/0Btv6XcI/5dd5cd17-80c4-11f1-87cc-0242ac110002-kyGSXl1N2HsrFHafC2D65.jpg';
+const catamaranImage = 'https://cdn.b12.io/client_media/0Btv6XcI/5d8573b7-80c4-11f1-be41-0242ac110002-3HSgnUeJT-DNijn-IT7YD.jpg';
+const blueHoleImage = 'https://cdn.b12.io/client_media/0Btv6XcI/5ddec6ec-80c4-11f1-a769-0242ac110002-aSHMvY_8kdFUWfJz9910Y.jpg';
+const yachtImage = 'https://cdn.b12.io/client_media/0Btv6XcI/5df2a153-80c4-11f1-8b79-0242ac110002-IQwwItwlBVOThkW7oAfi3.jpg';
+const underseaImage = 'https://cdn.b12.io/client_media/0Btv6XcI/5d6a9445-80c4-11f1-80de-0242ac110002-l7hjThh-nBoLqNShOZQ63.jpg';
+
+const images = [
+  {
+    id: 1,
+    title: 'Caribbean Waters',
+    category: 'Scenery',
+    image: heroImage,
+  },
+  {
+    id: 2,
+    title: 'Dunn\'s River Cascades',
+    category: 'Waterfalls',
+    image: dunnsRiverImage,
+  },
+  {
+    id: 3,
+    title: 'Catamaran Sailing',
+    category: 'Water Activities',
+    image: catamaranImage,
+  },
+  {
+    id: 4,
+    title: 'Blue Hole Adventure',
+    category: 'Waterfalls',
+    image: blueHoleImage,
+  },
+  {
+    id: 5,
+    title: 'Luxury Yacht Experience',
+    category: 'Charters',
+    image: yachtImage,
+  },
+  {
+    id: 6,
+    title: 'Marine Life',
+    category: 'Scenery',
+    image: underseaImage,
+  },
+  {
+    id: 7,
+    title: 'Sunset Cruise',
+    category: 'Water Activities',
+    image: catamaranImage,
+  },
+  {
+    id: 8,
+    title: 'Beach Paradise',
+    category: 'Scenery',
+    image: heroImage,
+  },
+  {
+    id: 9,
+    title: 'Adventure Awaits',
+    category: 'Waterfalls',
+    image: blueHoleImage,
+  },
+];
+
+const categories = Array.from(new Set(images.map(i => i.category)));
+---
+
+<Layout title="Gallery - The Yaadie Xplorer">
+  <section id="gallery-header" class="bg-gradient-to-r from-primary to-green-800 text-white py-12">
+    <div class="section-container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Photo Gallery</h1>
+      <p class="text-lg text-gray-100">Stunning moments from our guests' unforgettable Caribbean adventures</p>
+    </div>
+  </section>
+
+  <div class="section-container py-12">
+    <!-- Category Filter -->
+    <div class="mb-12">
+      <h3 class="text-lg font-semibold text-foreground mb-4">Filter by Category</h3>
+      <div class="flex flex-wrap gap-3">
+        <button
+          class="px-4 py-2 rounded-full font-semibold bg-primary text-white transition-all"
+          data-category="All"
+        >
+          All
+        </button>
+        {categories.map((cat) => (
+          <button
+            class="px-4 py-2 rounded-full font-semibold bg-gray-200 text-foreground hover:bg-secondary hover:text-black transition-all category-btn"
+            data-category={cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Masonry Gallery -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {images.map((img) => (
+        <div
+          class="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all group gallery-item cursor-pointer h-64"
+          data-category={img.category}
+        >
+          <img
+            src={img.image}
+            alt={img.title}
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 flex flex-col justify-end p-4">
+            <h3 class="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              {img.title}
+            </h3>
+            <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+              {img.category}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Share on Social -->
+    <div class="mt-16 bg-white rounded-xl shadow-lg p-8 text-center">
+      <h3 class="text-2xl font-bold text-primary mb-4">Share Your Adventure</h3>
+      <p class="text-foreground mb-6">Tag us on Instagram @the.yaadie.xplorer for a chance to be featured in our gallery!</p>
+      <a
+        href="https://instagram.com/the.yaadie.xplorer"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary"
+      >
+        Follow Us on Instagram
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const categoryButtons = document.querySelectorAll('button[data-category]');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    categoryButtons?.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selected = btn.getAttribute('data-category');
+
+        // Update active button
+        categoryButtons.forEach(b => {
+          if (b !== btn && b.classList.contains('category-btn')) {
+            b.classList.remove('bg-secondary', 'text-black');
+            b.classList.add('bg-gray-200', 'text-foreground');
+          }
+        });
+
+        if (btn.classList.contains('category-btn')) {
+          btn.classList.add('bg-secondary', 'text-black');
+          btn.classList.remove('bg-gray-200', 'text-foreground');
+        }
+
+        // Filter gallery
+        galleryItems?.forEach(item => {
+          if (selected === 'All' || item.getAttribute('data-category') === selected) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  @reference "../styles/global.css";
+</style>

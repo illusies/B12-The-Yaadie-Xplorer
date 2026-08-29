@@ -1,0 +1,327 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Star } from 'lucide-react';
+
+const reviews = [
+  {
+    id: 1,
+    name: 'Sarah Martinez',
+    rating: 5,
+    tour: 'Catamaran Cruise',
+    comment: 'Absolutely amazing experience! The crew was professional, the food was delicious, and the views were breathtaking. Highly recommend!',
+    date: '2026-06-15',
+  },
+  {
+    id: 2,
+    name: 'James Thompson',
+    rating: 5,
+    tour: 'Dunn\'s River & Blue Hole',
+    comment: 'The best day trip we\'ve had in Jamaica. Swimming in the waterfalls was incredible. Everything was well-organized.',
+    date: '2026-06-10',
+  },
+  {
+    id: 3,
+    name: 'Amelia Richardson',
+    rating: 4,
+    tour: 'Blue Mountain Tour',
+    comment: 'Great hiking experience with stunning views at the summit. The guide was knowledgeable. A bit strenuous but worth every step!',
+    date: '2026-06-05',
+  },
+  {
+    id: 4,
+    name: 'Marcus Johnson',
+    rating: 5,
+    tour: 'Private Yacht Charter',
+    comment: 'Luxury experience from start to finish. The finger food was gourmet, the bar was stocked, and the sunset cruise was romantic. Perfect for our anniversary!',
+    date: '2026-05-28',
+  },
+  {
+    id: 5,
+    name: 'Priya Patel',
+    rating: 5,
+    tour: 'Bamboo Rafting in Great River',
+    comment: 'So relaxing and peaceful. The limestone massage was therapeutic, and the raft captain was entertaining. Shopping after was a nice touch!',
+    date: '2026-05-20',
+  },
+  {
+    id: 6,
+    name: 'David Chen',
+    rating: 4,
+    tour: 'ATV & Zipline Safari',
+    comment: 'Adrenaline rush! The ATV trail was exciting, and the ziplines gave amazing views. Safety was prioritized. Loved it!',
+    date: '2026-05-15',
+  },
+  {
+    id: 7,
+    name: 'Linda Gonzalez',
+    rating: 5,
+    tour: 'Luminous Lagoon',
+    comment: 'Magical experience! Swimming in glowing water at night was surreal. Our kids will never forget this!',
+    date: '2026-05-10',
+  },
+  {
+    id: 8,
+    name: 'Robert Wilson',
+    rating: 5,
+    tour: 'Dolphin Swim',
+    comment: 'Unforgettable encounter with the dolphins. Professional handlers, beautiful facility, and the interaction was genuine and heartfelt.',
+    date: '2026-05-05',
+  },
+];
+
+const averageRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1);
+const ratingCounts = {
+  5: reviews.filter(r => r.rating === 5).length,
+  4: reviews.filter(r => r.rating === 4).length,
+  3: reviews.filter(r => r.rating === 3).length,
+  2: reviews.filter(r => r.rating === 2).length,
+  1: reviews.filter(r => r.rating === 1).length,
+};
+---
+
+<Layout title="Reviews - The Yaadie Xplorer">
+  <section id="reviews-header" class="bg-gradient-to-r from-primary to-green-800 text-white py-12">
+    <div class="section-container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Guest Reviews</h1>
+      <p class="text-lg text-gray-100">See what travelers say about their Jamaican adventures with us</p>
+      <!-- Share Your Review CTA -->
+      <div class="mt-8">
+        <button id="open-review-form" class="bg-secondary text-black px-6 py-3 rounded-lg font-semibold hover:bg-amber-300 transition-colors">Share Your Review</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Review Form Modal -->
+  <div id="review-form-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center">
+        <h2 class="text-2xl font-bold text-foreground">Share Your Review</h2>
+        <button id="close-review-form" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+      </div>
+      <div class="p-6">
+        <form data-form-id="afc9747a-a6de-4d21-a371-726247911b51" class="space-y-6">
+          <!-- Name Field -->
+          <div>
+            <label for="visitor_name" class="block text-sm font-medium text-foreground mb-2">Your Name *</label>
+            <input type="text" id="visitor_name" name="visitor_name" required class="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary" />
+          </div>
+
+          <!-- Tour Dropdown -->
+          <div>
+            <label for="tour_name" class="block text-sm font-medium text-foreground mb-2">Tour Name *</label>
+            <select id="tour_name" name="tour_name" required class="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+              <option value="">Select a tour...</option>
+              <option value="Catamaran Cruise">Catamaran Cruise</option>
+              <option value="Dunn's River & Blue Hole">Dunn's River & Blue Hole</option>
+              <option value="Dunn's River Falls Only">Dunn's River Falls Only</option>
+              <option value="Blue Hole Only">Blue Hole Only</option>
+              <option value="ATV, Zipline, Horseback, Catamaran & Jeep Safari">ATV, Zipline, Horseback, Catamaran & Jeep Safari</option>
+              <option value="ATV, Zipline, Horseback & Rick's Cafe Negril">ATV, Zipline, Horseback & Rick's Cafe Negril</option>
+              <option value="ATV & Zipline">ATV & Zipline</option>
+              <option value="ATV & Horseback">ATV & Horseback</option>
+              <option value="Eco Adventure Park">Eco Adventure Park</option>
+              <option value="Luminous Lagoon">Luminous Lagoon</option>
+              <option value="Bamboo Rafting in Great River">Bamboo Rafting in Great River</option>
+              <option value="Martha Brae Rafting">Martha Brae Rafting</option>
+              <option value="River Tubing">River Tubing</option>
+              <option value="Negril Day Tour, Shopping & Rick's Cafe">Negril Day Tour, Shopping & Rick's Cafe</option>
+              <option value="ATV Only">ATV Only</option>
+              <option value="Clear Kayak">Clear Kayak</option>
+              <option value="Jet Car">Jet Car</option>
+              <option value="Jet Ski">Jet Ski</option>
+              <option value="Nightlife">Nightlife</option>
+              <option value="Private Yacht Charter">Private Yacht Charter</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Sightseeing & Shopping">Sightseeing & Shopping</option>
+              <option value="Bob Marley House Tour">Bob Marley House Tour</option>
+              <option value="Bob Marley & Dunn's River">Bob Marley & Dunn's River</option>
+              <option value="Weed Farm & Shopping">Weed Farm & Shopping</option>
+              <option value="Hiking Experience">Hiking Experience</option>
+              <option value="Kingston Highlights Tour">Kingston Highlights Tour</option>
+              <option value="Appleton Estate & YS Falls">Appleton Estate & YS Falls</option>
+              <option value="Appleton Estate Only">Appleton Estate Only</option>
+              <option value="YS Falls Only">YS Falls Only</option>
+              <option value="Rose Hall Great House Day Tour">Rose Hall Great House Day Tour</option>
+              <option value="Rose Hall Great House Night Tour">Rose Hall Great House Night Tour</option>
+              <option value="Rose Hall Great House & Shopping">Rose Hall Great House & Shopping</option>
+              <option value="Dolphin Encounter Lucea">Dolphin Encounter Lucea</option>
+              <option value="Dolphin Swim">Dolphin Swim</option>
+              <option value="Dolphin Ultimate Swim">Dolphin Ultimate Swim</option>
+              <option value="Doctor's Cave Beach">Doctor's Cave Beach</option>
+              <option value="Rockland Bird Sanctuary">Rockland Bird Sanctuary</option>
+              <option value="Blue Mountain Tour">Blue Mountain Tour</option>
+              <option value="Airport Transfer - Montego Bay Hotel">Airport Transfer - Montego Bay Hotel</option>
+              <option value="Airport Transfer - Negril">Airport Transfer - Negril</option>
+              <option value="Airport Transfer - Ocho Rios">Airport Transfer - Ocho Rios</option>
+              <option value="Airport Transfer - South Coast">Airport Transfer - South Coast</option>
+            </select>
+          </div>
+
+          <!-- Star Rating -->
+          <div>
+            <label for="star_rating" class="block text-sm font-medium text-foreground mb-2">Star Rating *</label>
+            <select id="star_rating" name="star_rating" required class="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+              <option value="">Select a rating...</option>
+              <option value="5 Stars">5 Stars ★★★★★</option>
+              <option value="4 Stars">4 Stars ★★★★</option>
+              <option value="3 Stars">3 Stars ★★★</option>
+              <option value="2 Stars">2 Stars ★★</option>
+              <option value="1 Star">1 Star ★</option>
+            </select>
+          </div>
+
+          <!-- Review Comment -->
+          <div>
+            <label for="review_comment" class="block text-sm font-medium text-foreground mb-2">Your Review *</label>
+            <textarea id="review_comment" name="review_comment" required rows="5" class="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">Submit Review</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success/Error Messages for Review Form -->
+  <div id="b12-form-done-afc9747a-a6de-4d21-a371-726247911b51" hidden class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-8 text-center">
+      <h3 class="text-2xl font-bold text-primary mb-4">Thank You!</h3>
+      <p class="text-foreground mb-6">Your review has been submitted successfully. We appreciate your feedback!</p>
+      <button onclick="window.location.reload()" class="bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700">Close</button>
+    </div>
+  </div>
+
+  <div id="b12-form-error-afc9747a-a6de-4d21-a371-726247911b51" hidden class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-8 text-center">
+      <h3 class="text-2xl font-bold text-red-600 mb-4">Error</h3>
+      <p class="text-foreground mb-6">There was an error submitting your review. Please try again.</p>
+      <button onclick="location.reload()" class="bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700">Retry</button>
+    </div>
+  </div>
+
+  <div class="section-container py-12">
+    <!-- Overall Rating Summary -->
+    <div class="bg-white rounded-xl shadow-lg p-8 mb-12 border-b-4 border-secondary">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Average Rating -->
+        <div class="text-center">
+          <div class="text-5xl font-bold text-primary mb-2">{averageRating}</div>
+          <div class="flex justify-center gap-1 mb-2">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                size={20}
+                class={i < Math.floor(Number(averageRating)) ? 'fill-secondary text-secondary' : 'text-gray-300'}
+              />
+            ))}
+          </div>
+          <p class="text-muted-foreground">Based on {reviews.length} reviews</p>
+        </div>
+
+        <!-- Rating Breakdown -->
+        <div>
+          <h3 class="font-bold text-foreground mb-4">Rating Breakdown</h3>
+          {[5, 4, 3, 2, 1].map((rating) => {
+            const count = ratingCounts[rating as keyof typeof ratingCounts];
+            const percentage = ((count / reviews.length) * 100).toFixed(0);
+            return (
+              <div key={rating} class="flex items-center gap-3 mb-2">
+                <span class="w-8 text-sm font-semibold">{rating}★</span>
+                <div class="flex-grow bg-gray-200 rounded-full h-2 max-w-[150px]">
+                  <div
+                    class="bg-secondary h-2 rounded-full"
+                    style={{ width: `${percentage}%` }}
+                  ></div>
+                </div>
+                <span class="text-xs text-muted-foreground w-12 text-right">{count}</span>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Reviews Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {reviews.map((review) => (
+        <div key={review.id} class="bg-white rounded-lg shadow-md p-6 border-l-4 border-secondary hover:shadow-lg transition-shadow">
+          <!-- Stars -->
+          <div class="flex items-center gap-3 mb-3">
+            <div class="flex gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  size={16}
+                  class={i < review.rating ? 'fill-secondary text-secondary' : 'text-gray-300'}
+                />
+              ))}
+            </div>
+            <span class="text-sm font-semibold text-primary">{review.rating}.0</span>
+          </div>
+
+          <!-- Tour Name -->
+          <h3 class="font-bold text-foreground mb-2">{review.tour}</h3>
+
+          <!-- Comment -->
+          <p class="text-foreground text-sm mb-4 leading-relaxed">{review.comment}</p>
+
+          <!-- Reviewer Info -->
+          <div class="flex justify-between items-center text-xs text-muted-foreground pt-4 border-t border-border">
+            <span class="font-semibold">{review.name}</span>
+            <span>{new Date(review.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Trust Section -->
+  <section class="bg-primary text-white py-12 mt-12">
+    <div class="section-container text-center">
+      <h2 class="text-3xl font-bold mb-4">Why Guests Trust The Yaadie Xplorer</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div>
+          <div class="text-4xl font-bold text-secondary mb-2">2000+</div>
+          <p>Happy Travelers</p>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-secondary mb-2">18+</div>
+          <p>Unique Tours</p>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-secondary mb-2">4.8★</div>
+          <p>Average Rating</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const openBtn = document.getElementById('open-review-form');
+  const closeBtn = document.getElementById('close-review-form');
+  const modal = document.getElementById('review-form-modal');
+
+  if (openBtn && closeBtn && modal) {
+    openBtn.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+
+    // Close modal when clicking outside of form
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+      }
+    });
+  }
+</script>
+
+<style>
+  @reference "../styles/global.css";
+</style>

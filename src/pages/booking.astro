@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro'
+import BookingForm from '../components/BookingForm'
+---
+
+<Layout title="Book a Tour - The Yaadie Xplorer">
+  <section id="booking-header" class="bg-gradient-to-r from-primary to-green-800 text-white py-12">
+    <div class="section-container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Book Your Tour</h1>
+      <p class="text-lg text-gray-100">Choose your adventure and secure your spot today</p>
+    </div>
+  </section>
+
+  <div class="section-container py-12">
+    <BookingForm client:load />
+  </div>
+</Layout>
+
+<style>
+  @reference "../styles/global.css";
+</style>

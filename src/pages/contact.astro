@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+---
+
+<Layout title="Contact Us - The Yaadie Xplorer">
+  <section id="contact-header" class="bg-gradient-to-r from-primary to-green-800 text-white py-12">
+    <div class="section-container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
+      <p class="text-lg text-gray-100">Have questions? We're here to help plan your perfect Jamaican adventure</p>
+    </div>
+  </section>
+
+  <div class="section-container py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Contact Info -->
+      <div class="space-y-6">
+        <!-- Phone -->
+        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-secondary hover:shadow-lg transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="bg-primary text-white p-3 rounded-lg">
+              <Phone size={24} />
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-2">Phone & WhatsApp</h3>
+              <a href="tel:876-326-3354" class="text-primary font-semibold hover:text-secondary">876-326-3354</a>
+              <p class="text-sm text-muted-foreground mt-1">Call or message anytime</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-secondary hover:shadow-lg transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="bg-primary text-white p-3 rounded-lg">
+              <Mail size={24} />
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-2">Email</h3>
+              <a href="mailto:theyaadiexplorer@gmail.com" class="text-primary font-semibold hover:text-secondary">theyaadiexplorer@gmail.com</a>
+              <p class="text-sm text-muted-foreground mt-1">Response within 24 hours</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-secondary hover:shadow-lg transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="bg-primary text-white p-3 rounded-lg">
+              <MapPin size={24} />
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-2">Location</h3>
+              <p class="text-sm text-foreground">Lot 1220 Porto Bello Meadows</p>
+              <p class="text-sm text-foreground">Montego Bay, St James, Jamaica</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hours -->
+        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-secondary hover:shadow-lg transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="bg-primary text-white p-3 rounded-lg">
+              <Clock size={24} />
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-2">Business Hours</h3>
+              <p class="text-sm text-foreground">9am - 6pm EST</p>
+              <p class="text-sm text-foreground">7 Days a Week</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div class="bg-primary text-white rounded-lg p-6">
+          <h3 class="font-bold mb-4">Follow Our Adventures</h3>
+          <div class="flex flex-col gap-3">
+            <a href="https://instagram.com/the.yaadie.xplorer" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary transition-colors">📸 @the.yaadie.xplorer</a>
+            <a href="https://facebook.com/the.yaadie.xplorer" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary transition-colors">f the.yaadie.xplorer</a>
+            <a href="https://tiktok.com/@the.yaadie.xplorer" target="_blank" rel="noopener noreferrer" class="text-white hover:text-secondary transition-colors">🎬 @the.yaadie.xplorer</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-xl shadow-lg p-8">
+          <h2 class="text-2xl font-bold text-primary mb-6">Send us a Message</h2>
+
+          <form class="space-y-6">
+            <!-- Name -->
+            <div>
+              <label for="name" class="block text-sm font-semibold text-foreground mb-2">
+                Full Name <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Your name"
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label for="email" class="block text-sm font-semibold text-foreground mb-2">
+                Email Address <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="your@email.com"
+              />
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label for="phone" class="block text-sm font-semibold text-foreground mb-2">
+                Phone Number <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="876-XXX-XXXX"
+              />
+            </div>
+
+            <!-- Subject -->
+            <div>
+              <label for="subject" class="block text-sm font-semibold text-foreground mb-2">
+                Subject <span class="text-red-500">*</span>
+              </label>
+              <select
+                id="subject"
+                name="subject"
+                required
+                class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              >
+                <option value="">Select a subject</option>
+                <option value="booking-inquiry">Booking Inquiry</option>
+                <option value="custom-tour">Custom Tour Request</option>
+                <option value="group-booking">Group Booking</option>
+                <option value="general-question">General Question</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label for="message" class="block text-sm font-semibold text-foreground mb-2">
+                Message <span class="text-red-500">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows="5"
+                class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                placeholder="Tell us how we can help..."
+              ></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn-primary w-full text-lg py-3">
+              Send Message
+            </button>
+
+            <p class="text-xs text-muted-foreground text-center">
+              We typically respond within 24 hours during business hours (9am - 6pm EST)
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <section class="bg-gradient-to-r from-green-50 to-amber-50 py-12 mt-12">
+    <div class="section-container">
+      <h2 class="text-3xl font-bold text-primary text-center mb-8">What Do You Need?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="/tours" class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow border-t-4 border-primary">
+          <div class="text-4xl mb-3">🏖️</div>
+          <h3 class="font-bold text-foreground mb-2">Browse Tours</h3>
+          <p class="text-sm text-muted-foreground">Explore all 18+ experiences</p>
+        </a>
+
+        <a href="/custom-tour" class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow border-t-4 border-secondary">
+          <div class="text-4xl mb-3">✨</div>
+          <h3 class="font-bold text-foreground mb-2">Custom Tour</h3>
+          <p class="text-sm text-muted-foreground">Create your dream itinerary</p>
+        </a>
+
+        <a href="/reviews" class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow border-t-4 border-primary">
+          <div class="text-4xl mb-3">⭐</div>
+          <h3 class="font-bold text-foreground mb-2">See Reviews</h3>
+          <p class="text-sm text-muted-foreground">What guests are saying</p>
+        </a>
+
+        <a href="/faq" class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow border-t-4 border-secondary">
+          <div class="text-4xl mb-3">❓</div>
+          <h3 class="font-bold text-foreground mb-2">FAQ</h3>
+          <p class="text-sm text-muted-foreground">Common questions answered</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @reference "../styles/global.css";
+</style>

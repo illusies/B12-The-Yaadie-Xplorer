@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Star, MessageSquare } from 'lucide-react';
+
+const teamImage = 'https://cdn.b12.io/client_media/0Btv6XcI/5dac145a-80c4-11f1-bd77-0242ac110002-IF2dyl6DLbN5QfIcrimhy.jpg';
+
+const testimonials = [
+  {
+    id: 1,
+    name: 'The Johnson Family',
+    location: 'Toronto, Canada',
+    type: 'Family Vacation',
+    rating: 5,
+    quote: 'Our family will never forget the magical experience at Luminous Lagoon. Our children learned so much about Jamaica, and every moment was perfectly organized. The team made us feel like family!',
+    tour: 'Luminous Lagoon + Bamboo Rafting',
+  },
+  {
+    id: 2,
+    name: 'TechFlow Solutions',
+    location: 'New York, USA',
+    type: 'Corporate Retreat',
+    rating: 5,
+    quote: 'We brought 25 team members for a 3-day retreat. The coordination was flawless, the activities were thrilling, and our team bonded like never before. The Yaadie Xplorer exceeded every expectation.',
+    tour: 'Multi-Day Custom Corporate Package',
+  },
+  {
+    id: 3,
+    name: 'Sarah & Michael',
+    location: 'London, UK',
+    type: 'Honeymoon',
+    rating: 5,
+    quote: 'Our private yacht charter was the highlight of our honeymoon. The sunset, the food, the service—everything was absolutely perfect. We couldn\'t have asked for a better celebration of our marriage.',
+    tour: 'Private Yacht Charter',
+  },
+  {
+    id: 4,
+    name: 'The Adventure Club',
+    location: 'Miami, USA',
+    type: 'Group Adventure',
+    rating: 5,
+    quote: 'From ATV adventures to ziplines to Dunn\'s River, every moment was adrenaline-pumping. The guides were incredibly professional and made sure everyone felt safe and empowered. Highly recommend!',
+    tour: 'ATV & Zipline Safari',
+  },
+  {
+    id: 5,
+    name: 'Dr. Patricia Chen',
+    location: 'San Francisco, USA',
+    type: 'Solo Traveler',
+    rating: 5,
+    quote: 'As a solo traveler, I was nervous about group tours. The Yaadie Xplorer made me feel completely safe and welcomed. I made friends from around the world and experienced Jamaica authentically. Unforgettable!',
+    tour: 'Comprehensive Jamaica Experience',
+  },
+  {
+    id: 6,
+    name: 'Corporate Events Plus',
+    location: 'Chicago, USA',
+    type: 'Team Building',
+    rating: 5,
+    quote: 'We\'ve used The Yaadie Xplorer for three consecutive years for our annual retreat. Their ability to customize experiences and manage logistics for 50+ people is unmatched in the industry.',
+    tour: 'Annual Team Building Retreat',
+  },
+];
+---
+
+<Layout title="Testimonials & Case Studies - The Yaadie Xplorer">
+  <section id="testimonials-header" class="bg-gradient-to-r from-primary to-green-800 text-white py-12">
+    <div class="section-container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Guest Testimonials & Case Studies</h1>
+      <p class="text-lg text-gray-100">Real stories from travelers who've experienced Jamaica with The Yaadie Xplorer</p>
+    </div>
+  </section>
+
+  <div class="section-container py-12">
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      {testimonials.map((testimonial) => (
+        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-secondary hover:shadow-lg transition-shadow">
+          <!-- Stars -->
+          <div class="flex gap-1 mb-4">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} size={18} class="fill-secondary text-secondary" />
+            ))}
+          </div>
+
+          <!-- Quote -->
+          <p class="text-foreground italic mb-4 leading-relaxed">
+            "{testimonial.quote}"
+          </p>
+
+          <!-- Tour Info -->
+          <div class="bg-gray-50 rounded p-3 mb-4 text-sm">
+            <p class="font-semibold text-primary">Tour: {testimonial.tour}</p>
+            <p class="text-muted-foreground text-xs">Experience Type: {testimonial.type}</p>
+          </div>
+
+          <!-- Guest Info -->
+          <div class="flex items-center justify-between pt-4 border-t border-border">
+            <div>
+              <p class="font-bold text-foreground">{testimonial.name}</p>
+              <p class="text-xs text-muted-foreground">{testimonial.location}</p>
+            </div>
+            <MessageSquare class="text-secondary" size={24} />
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Case Study Section -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-primary mb-8">Featured Case Study</h2>
+
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2">
+          <img
+            src={teamImage}
+            alt="TechFlow Solutions team"
+            class="w-full h-96 object-cover"
+          />
+
+          <div class="p-8 flex flex-col justify-center">
+            <span class="inline-block bg-secondary text-black px-3 py-1 rounded-full text-sm font-semibold mb-4 w-fit">
+              Case Study
+            </span>
+
+            <h3 class="text-2xl font-bold text-primary mb-4">TechFlow Solutions: 3-Day Corporate Retreat</h3>
+
+            <div class="space-y-4 mb-6">
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">The Challenge</h4>
+                <p class="text-muted-foreground">A 25-person tech team needed a meaningful retreat that would foster team bonding while providing opportunities for adventure, relaxation, and cultural immersion.</p>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">Our Solution</h4>
+                <p class="text-muted-foreground">We designed a custom 3-day itinerary blending high-energy activities (ATV safari, zipline), relaxation (spa treatment, beach day), and cultural experiences (local village visit, cooking class).</p>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-foreground mb-1">The Results</h4>
+                <ul class="text-sm text-muted-foreground space-y-1 ml-4">
+                  <li>• 98% satisfaction rating from participants</li>
+                  <li>• Team reported improved collaboration post-retreat</li>
+                  <li>• Three consecutive years of bookings secured</li>
+                  <li>• Company expanded to annual team events</li>
+                </ul>
+              </div>
+            </div>
+
+            <blockquote class="border-l-4 border-secondary pl-4 mb-6 italic text-foreground">
+              "The Yaadie Xplorer transformed our retreat into a career-defining experience. Our team bonded in ways we never expected, and the professionalism was outstanding."
+              <p class="font-semibold text-primary mt-2">— Robert Williams, CEO TechFlow Solutions</p>
+            </blockquote>
+
+            <a href="/group-packages" class="btn-primary inline-block w-fit">Explore Group Packages</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="bg-primary text-white rounded-xl p-8 mb-16">
+      <h2 class="text-2xl font-bold mb-8 text-center">By The Numbers</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="text-4xl font-bold text-secondary mb-2">2,500+</div>
+          <p class="text-gray-100">Happy Guests</p>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-secondary mb-2">4.9★</div>
+          <p class="text-gray-100">Average Rating</p>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-secondary mb-2">98%</div>
+          <p class="text-gray-100">Would Recommend</p>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-secondary mb-2">15+</div>
+          <p class="text-gray-100">Years Experience</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-gradient-to-r from-green-50 to-amber-50 rounded-xl p-8 text-center">
+      <h3 class="text-2xl font-bold text-primary mb-4">Ready to Create Your Story?</h3>
+      <p class="text-foreground mb-6">Join thousands of satisfied travelers who've experienced Jamaica with The Yaadie Xplorer.</p>
+      <div class="flex flex-col md:flex-row justify-center gap-4">
+        <a href="/tours" class="btn-primary">Browse Tours</a>
+        <a href="/custom-tour" class="btn-secondary">Plan Custom Experience</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @reference "../styles/global.css";
+</style>

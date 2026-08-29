@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro'
+import CheckoutForm from '../components/CheckoutForm'
+---
+
+<Layout title="Checkout - The Yaadie Xplorer">
+  <section id="checkout-header" class="bg-gradient-to-r from-primary to-green-800 text-white py-12">
+    <div class="section-container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Complete Your Booking</h1>
+      <p class="text-lg text-gray-100">Review and confirm your tour reservation</p>
+    </div>
+  </section>
+
+  <div class="section-container py-12">
+    <CheckoutForm client:load />
+  </div>
+</Layout>
+
+<style>
+  @reference "../styles/global.css";
+</style>

@@ -1,0 +1,276 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Create Custom Dream Tour - The Yaadie Xplorer">
+  <section id="custom-tour-header" class="bg-gradient-to-r from-primary to-green-800 text-white py-12">
+    <div class="section-container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Create Your Custom Dream Tour</h1>
+      <p class="text-lg text-gray-100">Tell us about your perfect Caribbean adventure and we'll craft it for you</p>
+    </div>
+  </section>
+
+  <div class="section-container py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Form Column -->
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-xl shadow-lg p-8">
+          <form
+            id="custom-tour-form"
+            data-form-id="a4a93ec2-1cbc-4d02-8c54-28025d9d6d9c"
+            class="space-y-6"
+          >
+            <!-- Personal Information -->
+            <div class="border-b pb-6">
+              <h3 class="text-xl font-bold text-primary mb-4">1. Your Information</h3>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label for="full_name" class="block text-sm font-semibold text-foreground mb-2">
+                    Full Name <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="full_name"
+                    name="full_name"
+                    required
+                    class="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+
+                <div>
+                  <label for="email_address" class="block text-sm font-semibold text-foreground mb-2">
+                    Email Address <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email_address"
+                    name="email_address"
+                    required
+                    class="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <label for="phone_number" class="block text-sm font-semibold text-foreground mb-2">
+                  Phone Number <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone_number"
+                  name="phone_number"
+                  required
+                  class="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+            </div>
+
+            <!-- Tour Details -->
+            <div class="border-b pb-6">
+              <h3 class="text-xl font-bold text-primary mb-4">2. Tour Details</h3>
+
+              <div class="mb-4">
+                <label for="desired_destinations" class="block text-sm font-semibold text-foreground mb-2">
+                  Desired Destinations <span class="text-red-500">*</span>
+                </label>
+                <textarea
+                  id="desired_destinations"
+                  name="desired_destinations"
+                  required
+                  rows="3"
+                  placeholder="e.g., Dunn's River Falls, Montego Bay, Blue Hole, Negril Beach..."
+                  class="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                ></textarea>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label for="group_size" class="block text-sm font-semibold text-foreground mb-2">
+                    Group Size <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    id="group_size"
+                    name="group_size"
+                    min="1"
+                    required
+                    class="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+
+                <div>
+                  <label for="preferred_dates" class="block text-sm font-semibold text-foreground mb-2">
+                    Preferred Travel Dates <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="preferred_dates"
+                    name="preferred_dates"
+                    placeholder="e.g., July 20-25, 2026"
+                    required
+                    class="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <label for="transport_preference" class="block text-sm font-semibold text-foreground mb-2">
+                  Transport Preference <span class="text-red-500">*</span>
+                </label>
+                <select
+                  id="transport_preference"
+                  name="transport_preference"
+                  required
+                  class="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                >
+                  <option value="">Select transport option</option>
+                  <option value="Van">Van</option>
+                  <option value="SUV">SUV</option>
+                  <option value="Coach/Bus">Coach/Bus</option>
+                  <option value="No preference">No preference</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Special Requirements -->
+            <div class="border-b pb-6">
+              <h3 class="text-xl font-bold text-primary mb-4">3. Additional Information</h3>
+
+              <div class="mb-4">
+                <label for="itinerary_notes" class="block text-sm font-semibold text-foreground mb-2">
+                  Custom Itinerary Notes
+                </label>
+                <textarea
+                  id="itinerary_notes"
+                  name="itinerary_notes"
+                  rows="3"
+                  placeholder="Share any specific activities, pacing preferences, or special interests..."
+                  class="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                ></textarea>
+              </div>
+
+              <div class="mb-4">
+                <label for="special_requirements" class="block text-sm font-semibold text-foreground mb-2">
+                  Special Requirements
+                </label>
+                <textarea
+                  id="special_requirements"
+                  name="special_requirements"
+                  rows="3"
+                  placeholder="e.g., accessibility needs, dietary restrictions, child seating, etc..."
+                  class="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="budget_range" class="block text-sm font-semibold text-foreground mb-2">
+                  Approximate Budget Range <span class="text-red-500">*</span>
+                </label>
+                <select
+                  id="budget_range"
+                  name="budget_range"
+                  required
+                  class="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                >
+                  <option value="">Select a range</option>
+                  <option value="$500-$1000">$500 - $1,000</option>
+                  <option value="$1000-$2500">$1,000 - $2,500</option>
+                  <option value="$2500-$5000">$2,500 - $5,000</option>
+                  <option value="$5000+">$5,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn-primary w-full text-lg py-4">
+              Submit Dream Tour Request
+            </button>
+          </form>
+
+          <!-- Success Message -->
+          <div
+            id="b12-form-done-a4a93ec2-1cbc-4d02-8c54-28025d9d6d9c"
+            hidden
+            class="bg-green-50 border-2 border-green-500 rounded-lg p-6 text-center"
+          >
+            <h4 class="text-xl font-bold text-primary mb-2">✓ Request Submitted!</h4>
+            <p class="text-foreground mb-4">
+              Thank you for your custom tour request! Our team will review your details and contact you within 24 hours to finalize your dream Jamaican adventure.
+            </p>
+            <p class="text-sm text-muted-foreground">
+              Check your email for confirmation and expect a call/WhatsApp from 876-326-3354
+            </p>
+          </div>
+
+          <!-- Error Message -->
+          <div
+            id="b12-form-error-a4a93ec2-1cbc-4d02-8c54-28025d9d6d9c"
+            hidden
+            class="bg-red-50 border-2 border-red-500 rounded-lg p-6 text-center"
+          >
+            <h4 class="text-xl font-bold text-red-600 mb-2">✗ Something Went Wrong</h4>
+            <p class="text-foreground">
+              There was an issue submitting your request. Please try again or contact us directly at 876-326-3354.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <div class="bg-primary text-white rounded-xl p-6 sticky top-24">
+          <h3 class="text-xl font-bold mb-4">Why Choose Custom?</h3>
+          <ul class="space-y-3 text-sm">
+            <li class="flex gap-3">
+              <span class="text-secondary text-lg">✓</span>
+              <span>Tailored to your interests & pace</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-secondary text-lg">✓</span>
+              <span>Flexible dates & group sizes</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-secondary text-lg">✓</span>
+              <span>Special accommodations welcome</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-secondary text-lg">✓</span>
+              <span>Competitive group pricing</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-secondary text-lg">✓</span>
+              <span>Direct coordination with our team</span>
+            </li>
+          </ul>
+
+          <div class="mt-8 pt-6 border-t border-green-700">
+            <h4 class="font-semibold mb-3">Quick Contact</h4>
+            <div class="space-y-2 text-sm">
+              <p>
+                <span class="font-semibold">Phone:</span><br />
+                876-326-3354
+              </p>
+              <p>
+                <span class="font-semibold">WhatsApp:</span><br />
+                876-326-3354
+              </p>
+              <p>
+                <span class="font-semibold">Email:</span><br />
+                theyaadiexplorer@gmail.com
+              </p>
+              <p>
+                <span class="font-semibold">Hours:</span><br />
+                9am - 6pm EST
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @reference "../styles/global.css";
+</style>

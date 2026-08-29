@@ -1,0 +1,226 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CheckCircle, Download, Mail, Phone, AlertCircle } from 'lucide-react';
+---
+
+<Layout title="Booking Confirmation - The Yaadie Xplorer">
+  <div class="section-container py-12">
+    <div class="max-w-2xl mx-auto">
+      <!-- Success Message -->
+      <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-8 mb-8 border-2 border-green-500">
+        <div class="flex items-center gap-4 mb-6">
+          <CheckCircle class="text-green-600" size={48} />
+          <div>
+            <h1 class="text-3xl font-bold text-green-700">Booking Confirmed!</h1>
+            <p class="text-green-600">Your adventure awaits</p>
+          </div>
+        </div>
+        <p class="text-foreground mb-2">
+          Thank you for booking with The Yaadie Xplorer! Your tour reservation has been successfully confirmed.
+        </p>
+        <p class="text-muted-foreground text-sm">
+          A confirmation email has been sent to your registered email address with all tour details and important information.
+        </p>
+      </div>
+
+      <!-- Booking Details Card -->
+      <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+        <h2 class="text-2xl font-bold text-primary mb-6">Your Booking Details</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="border-b border-border pb-4">
+            <p class="text-sm text-muted-foreground mb-1">Confirmation Number</p>
+            <p class="text-lg font-bold text-foreground">YX-2026-07-12345</p>
+          </div>
+
+          <div class="border-b border-border pb-4">
+            <p class="text-sm text-muted-foreground mb-1">Tour Name</p>
+            <p class="text-lg font-bold text-foreground">Catamaran Cruise & Snorkeling Adventure</p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 border-b border-border pb-4">
+            <div>
+              <p class="text-sm text-muted-foreground mb-1">Date</p>
+              <p class="font-bold text-foreground">July 25, 2026</p>
+            </div>
+            <div>
+              <p class="text-sm text-muted-foreground mb-1">Time</p>
+              <p class="font-bold text-foreground">8:00 AM</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 border-b border-border pb-4">
+            <div>
+              <p class="text-sm text-muted-foreground mb-1">Participants</p>
+              <p class="font-bold text-foreground">4 People</p>
+            </div>
+            <div>
+              <p class="text-sm text-muted-foreground mb-1">Pickup Location</p>
+              <p class="font-bold text-foreground">Montego Bay</p>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-muted-foreground mb-1">Total Amount</p>
+            <div class="flex justify-between items-baseline">
+              <p class="font-bold text-foreground">Tour Cost</p>
+              <p class="text-2xl font-bold text-primary">$260</p>
+            </div>
+            <p class="text-xs text-muted-foreground mt-2">$65 per person × 4 participants</p>
+          </div>
+        </div>
+
+        <!-- Payment Status -->
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+          <h3 class="font-bold text-foreground mb-3">Payment Status</h3>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between">
+              <span class="text-foreground">Deposit Paid (30%)</span>
+              <span class="font-bold text-green-600">✓ $78.00</span>
+            </div>
+            <div class="flex justify-between border-t border-blue-200 pt-2">
+              <span class="text-foreground">Final Payment Due</span>
+              <span class="font-bold text-primary">$182.00</span>
+            </div>
+            <p class="text-xs text-muted-foreground mt-3">Final balance due by July 18, 2026</p>
+          </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="bg-primary text-white rounded-lg p-6">
+          <h3 class="font-bold mb-4">Next Steps</h3>
+          <ol class="space-y-3 text-sm">
+            <li class="flex gap-3">
+              <span class="font-bold">1.</span>
+              <span>Check your email for the complete booking confirmation</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold">2.</span>
+              <span>Pay the remaining balance by July 18, 2026</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold">3.</span>
+              <span>Arrive 15 minutes early on tour day at your pickup location</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold">4.</span>
+              <span>Bring your confirmation number and valid ID</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Important Information -->
+      <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
+        <div class="flex gap-3">
+          <AlertCircle class="text-yellow-600 flex-shrink-0 mt-0.5" size={24} />
+          <div>
+            <h3 class="font-bold text-yellow-900 mb-2">Important Information</h3>
+            <ul class="text-sm text-yellow-800 space-y-2">
+              <li>✓ Bring sunscreen, water shoes, and a change of clothes</li>
+              <li>✓ Tour includes complimentary rum punch, red stripe beer, water, and coconut water</li>
+              <li>✓ Not suitable for pregnant women or those with heart conditions</li>
+              <li>✓ Arrive 15 minutes early. Late arrivals may forfeit the tour</li>
+              <li>✓ Cancellation policy applies (see Terms & Conditions)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact & Support -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-primary">
+          <div class="flex items-center gap-2 mb-4">
+            <Phone class="text-primary" size={24} />
+            <h3 class="font-bold text-foreground">Questions? Call Us</h3>
+          </div>
+          <p class="text-foreground mb-2">876-326-3354</p>
+          <p class="text-xs text-muted-foreground">Available 9am - 6pm EST, 7 days a week</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-secondary">
+          <div class="flex items-center gap-2 mb-4">
+            <Mail class="text-secondary" size={24} />
+            <h3 class="font-bold text-foreground">Email Support</h3>
+          </div>
+          <p class="text-foreground mb-2">theyaadiexplorer@gmail.com</p>
+          <p class="text-xs text-muted-foreground">Response within 24 hours</p>
+        </div>
+      </div>
+
+      <!-- What to Bring -->
+      <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+        <h3 class="text-2xl font-bold text-primary mb-6">What to Bring</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="text-center">
+            <div class="text-3xl mb-2">☀️</div>
+            <p class="text-sm font-semibold">Sunscreen</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl mb-2">👕</div>
+            <p class="text-sm font-semibold">Change of Clothes</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl mb-2">👟</div>
+            <p class="text-sm font-semibold">Water Shoes</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl mb-2">🎒</div>
+            <p class="text-sm font-semibold">Waterproof Bag</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl mb-2">📱</div>
+            <p class="text-sm font-semibold">Camera</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl mb-2">🪰</div>
+            <p class="text-sm font-semibold">Insect Repellent</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl mb-2">🏖️</div>
+            <p class="text-sm font-semibold">Towel</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl mb-2">🪪</div>
+            <p class="text-sm font-semibold">Valid ID</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Download & Print -->
+      <div class="flex flex-col md:flex-row gap-4 mb-8">
+        <button class="btn-primary flex items-center justify-center gap-2 flex-1">
+          <Download size={20} /> Download Itinerary
+        </button>
+        <button class="btn-secondary flex items-center justify-center gap-2 flex-1">
+          <Mail size={20} /> Email Confirmation
+        </button>
+      </div>
+
+      <!-- Final CTA -->
+      <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-8 text-center border border-green-200">
+        <h3 class="text-xl font-bold text-primary mb-3">Get Excited! 🎉</h3>
+        <p class="text-foreground mb-6">
+          Your Jamaican adventure is just around the corner. Follow us on Instagram to see what awaits you!
+        </p>
+        <a
+          href="https://instagram.com/the.yaadie.xplorer"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          Follow @the.yaadie.xplorer
+        </a>
+      </div>
+
+      <!-- Footer Note -->
+      <p class="text-center text-sm text-muted-foreground mt-8">
+        Check your email for the complete confirmation. If you don't see it, please check your spam folder or contact us.
+      </p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @reference "../styles/global.css";
+</style>
